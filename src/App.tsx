@@ -1,6 +1,7 @@
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import AppBar from './components/AppBar';
+import Header from './components/Header';
 import { theme } from './lib/theme';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
     <MuiThemeProvider theme={theme}>
       <CssBaseline />
       <AppBar />
+      <Header />
     </MuiThemeProvider>
   );
 }
