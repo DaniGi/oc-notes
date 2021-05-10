@@ -1,7 +1,24 @@
 import * as React from 'react';
 import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import Sections from './Sections';
+import Sections, { ISection } from './Section';
 import BookmarkList from './BookmarkList';
+
+const content =
+  'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.';
+const sections: ISection[] = [
+  {
+    title: 'title 1',
+    content,
+  },
+  {
+    title: 'title 2',
+    content,
+  },
+  {
+    title: 'title 3',
+    content,
+  },
+];
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -19,7 +36,9 @@ const CoursChapter: React.FC = () => {
       <Grid item container xs={12} sm={9}>
         <Grid item xs={12} sm={9} style={{ paddingRight: '30px' }}>
           <Typography variant="h2">Maîtrisez votre e-réputation</Typography>
-          <Sections />
+          {sections.map((section) => (
+            <Sections title={section.title} content={section.content} />
+          ))}
         </Grid>
         <Grid item xs={12} sm={3}>
           <BookmarkList />
