@@ -8,7 +8,9 @@ import blue from '@material-ui/core/colors/blue';
 
 export interface ISection {
   title: string;
+  id_title: string;
   content: string;
+  id_content: string;
 }
 
 type Props = ISection;
@@ -39,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Section: React.FC<Props> = ({ title, content }) => {
+const Section: React.FC<Props> = ({ title, id_title, content, id_content }) => {
   const classes = useStyles();
   const [isActiveIcon, setIsactiveIcon] = useState(false);
 
@@ -58,8 +60,10 @@ const Section: React.FC<Props> = ({ title, content }) => {
           )}
         </IconButton>
       </Tooltip>
-      <Typography variant="h3">{title}</Typography>
-      <Typography>{content}</Typography>
+      <Typography variant="h3" id={id_title}>
+        {title}
+      </Typography>
+      <Typography id={id_content}>{content}</Typography>
     </div>
   );
 };
