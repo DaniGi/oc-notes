@@ -4,6 +4,7 @@ import AppBar from './components/AppBar';
 import Header from './components/Header';
 import CoursChapter from './components/CoursChapter';
 import { theme } from './lib/theme';
+import { BookmarksProvider } from './contexts/BookmarksContext';
 
 function App() {
   return (
@@ -11,7 +12,9 @@ function App() {
       <CssBaseline />
       <AppBar />
       <Header />
-      <CoursChapter />
+      <BookmarksProvider>
+        <CoursChapter />
+      </BookmarksProvider>
     </MuiThemeProvider>
   );
 }
