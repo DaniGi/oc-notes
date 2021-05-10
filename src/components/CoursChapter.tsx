@@ -18,6 +18,22 @@ const sections = [
     title: 'title 3',
     content,
   },
+  {
+    title: 'title 4',
+    content,
+  },
+  {
+    title: 'title 5',
+    content,
+  },
+  {
+    title: 'title 6',
+    content,
+  },
+  {
+    title: 'title 7',
+    content,
+  },
 ];
 
 const useStyles = makeStyles((theme: Theme) =>

@@ -6,6 +6,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import { IconButton, ListItemSecondaryAction } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
+import { useBookmarks } from '../contexts/BookmarksContext';
+import { IBookmark } from '../reducers/BookmarksReducer';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -33,6 +35,7 @@ function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
 
 const BookmarkList: React.FC = () => {
   const classes = useStyles();
+  const { bookmarksState } = useBookmarks();
 
   return (
     <div className={classes.root}>
@@ -40,17 +43,18 @@ const BookmarkList: React.FC = () => {
         Bookmarks
       </Typography>
       <List component="nav" aria-label="bookmarks list">
-        <ListItem button>
-          <ListItemText primary="bookmark 1" />
-          <ListItemSecondaryAction>
-            <IconButton edge="end" aria-label="delete">
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-        <ListItemLink href="#simple-list">
-          <ListItemText primary="Spam" />
-        </ListItemLink>
+        {bookmarksState.map((bookmark: IBookmark) => {
+          return (
+            <ListItemLink href={`#${bookmark.id}`}>
+              <ListItemText primary={bookmark.id} />
+              <ListItemSecondaryAction>
+                <IconButton edge="end" aria-label="delete">
+                  <DeleteIcon />
+                </IconButton>
+              </ListItemSecondaryAction>
+            </ListItemLink>
+          );
+        })}
       </List>
     </div>
   );
