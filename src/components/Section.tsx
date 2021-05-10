@@ -5,17 +5,17 @@ import Tooltip from '@material-ui/core/Tooltip';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
 import BookmarkIcon from '@material-ui/icons/Bookmark';
 import blue from '@material-ui/core/colors/blue';
+import { useBookmarks } from '../contexts/BookmarksContext';
 
 export interface ISection {
   title: string;
-  id_title: string;
   content: string;
-  id_content: string;
+  id: string;
 }
 
 type Props = ISection;
 
-const { useState } = React;
+const { useState, useRef } = React;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,9 +41,22 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
-const Section: React.FC<Props> = ({ title, id_title, content, id_content }) => {
+const Section: React.FC<Props> = ({ title, id, content }) => {
   const classes = useStyles();
   const [isActiveIcon, setIsactiveIcon] = useState(false);
+  const { bookmarksDispatch } = useBookmarks();
+  const bookmarkRef = useRef<HTMLDivElement>(null);
+
+  const handleIconClick = () => {
+    if (bookmarkRef.current) {
+      if (isActiveIcon) {
+        bookmarksDispatch({ type: 'remove-bookmark', payload: { id: bookmarkRef.current.id } });
+      } else {
+        bookmarksDispatch({ type: 'add-bookmark', payload: { id: bookmarkRef.current.id } });
+      }
+    }
+    setIsactiveIcon((prev) => !prev);
+  };
 
   return (
     <div className={classes.root}>
@@ -51,7 +64,9 @@ const Section: React.FC<Props> = ({ title, id_title, content, id_content }) => {
         <IconButton
           aria-label="add bookmark"
           className={classes.bookmark}
-          onClick={() => setIsactiveIcon((prev) => !prev)}
+          onClick={handleIconClick}
+          innerRef={bookmarkRef}
+          id={id}
         >
           {isActiveIcon ? (
             <BookmarkIcon className={classes.bookmark__icon__hover} />
@@ -60,10 +75,8 @@ const Section: React.FC<Props> = ({ title, id_title, content, id_content }) => {
           )}
         </IconButton>
       </Tooltip>
-      <Typography variant="h3" id={id_title}>
-        {title}
-      </Typography>
-      <Typography id={id_content}>{content}</Typography>
+      <Typography variant="h3">{title}</Typography>
+      <Typography>{content}</Typography>
     </div>
   );
 };

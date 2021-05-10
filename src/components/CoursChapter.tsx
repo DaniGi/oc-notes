@@ -37,12 +37,7 @@ const CoursChapter: React.FC = () => {
         <Grid item xs={12} sm={9} style={{ paddingRight: '30px' }}>
           <Typography variant="h2">Maîtrisez votre e-réputation</Typography>
           {sections.map((section, index) => (
-            <Section
-              title={section.title}
-              id_title={`title-${index}`}
-              content={section.content}
-              id_content={`content-${index}`}
-            />
+            <Section title={section.title} id={`bookmark-${index}`} content={section.content} />
           ))}
         </Grid>
         <Grid item xs={12} sm={3}>
