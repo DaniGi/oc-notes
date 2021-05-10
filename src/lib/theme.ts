@@ -15,6 +15,13 @@ const theme = createMuiTheme({
       fontWeight: 700,
       fontSize: '2rem',
     },
+    h2: {
+      fontWeight: 700,
+      fontSize: '1.625rem',
+      lineHeight: '2.25rem',
+      marginBottom: '10px',
+      paddingBottom: '5px',
+    },
   },
 });
 
