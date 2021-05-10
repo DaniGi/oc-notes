@@ -1,6 +1,7 @@
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { AppBar, Toolbar, Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -20,6 +21,10 @@ const useStyles = makeStyles((theme: Theme) =>
       marginRight: theme.spacing(2),
       top: 4,
       position: 'relative',
+    },
+    divider: {
+      height: 32,
+      marginRight: theme.spacing(2),
     },
   }),
 );
@@ -53,6 +58,7 @@ export default function ButtonAppBar() {
             <Typography variant="h6" className={classes.item}>
               Financements
             </Typography>
+            <Divider orientation="vertical" className={classes.divider} />
             <Typography variant="h6" className={classes.last}>
               Pour les entreprises
             </Typography>
