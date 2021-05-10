@@ -22,6 +22,11 @@ const theme = createMuiTheme({
       marginBottom: '10px',
       paddingBottom: '5px',
     },
+    h3: {
+      fontWeight: 700,
+      fontSize: '1.375rem',
+      lineHeight: '2rem',
+    },
   },
 });
 

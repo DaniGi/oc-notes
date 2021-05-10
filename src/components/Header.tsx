@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     breadcrumbs: {
       marginBottom: theme.spacing(2),
-      marginTop: theme.spacing(3),
+      marginTop: theme.spacing(2),
     },
     breadcrumbs__item: {
       fontWeight: 700,
@@ -70,10 +70,10 @@ const Header: React.FC = () => {
           </Typography>
         </Breadcrumbs>
       </Grid>
-      <Grid item xs={12} sm={10} className={classes.title}>
+      <Grid item xs={12} sm={9} className={classes.title}>
         <Typography variant="h1">Élaborez votre stratégie de recherche d&apos;emploi</Typography>
       </Grid>
-      <Grid item container xs={12} sm={10} alignItems="center" justify="space-between">
+      <Grid item container xs={12} sm={9} alignItems="center" justify="space-between">
         <Grid item>
           <div>
             <ul className={classes.info}>
