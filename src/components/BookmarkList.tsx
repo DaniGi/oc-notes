@@ -3,8 +3,9 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
 import Typography from '@material-ui/core/Typography';
+import { IconButton, ListItemSecondaryAction } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -38,10 +39,14 @@ const BookmarkList: React.FC = () => {
       <Typography variant="h6" className={classes.title}>
         Bookmarks
       </Typography>
-      <Divider />
       <List component="nav" aria-label="bookmarks list">
         <ListItem button>
-          <ListItemText primary="Trash" />
+          <ListItemText primary="bookmark 1" />
+          <ListItemSecondaryAction>
+            <IconButton edge="end" aria-label="delete">
+              <DeleteIcon />
+            </IconButton>
+          </ListItemSecondaryAction>
         </ListItem>
         <ListItemLink href="#simple-list">
           <ListItemText primary="Spam" />

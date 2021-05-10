@@ -1,5 +1,6 @@
-import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import * as React from 'react';
+import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 interface ISection {
   title: string;
@@ -38,6 +39,7 @@ const Sections: React.FC = () => {
       {sections.map((section) => {
         return (
           <div className={classes.root}>
+            <BookmarkIcon />
             <Typography variant="h3">{section.title}</Typography>
             <Typography>{section.content}</Typography>
           </div>
