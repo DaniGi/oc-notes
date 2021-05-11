@@ -15,7 +15,7 @@ export interface ISection {
 
 type Props = ISection;
 
-const { useState, useRef } = React;
+const { useState, useEffect } = React;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -43,32 +43,36 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Section: React.FC<Props> = ({ title, id, content }) => {
   const classes = useStyles();
-  const [isActiveIcon, setIsactiveIcon] = useState(false);
-  const { bookmarksDispatch } = useBookmarks();
-  const bookmarkRef = useRef<HTMLDivElement>(null);
+  const [isInList, SetisInList] = useState(false);
+  const { bookmarksState, bookmarksDispatch } = useBookmarks();
+
+  useEffect(() => {
+    const items = bookmarksState.filter((bookmark) => bookmark.id === id);
+    if (items.length === 0) {
+      SetisInList(false);
+    } else {
+      SetisInList(true);
+    }
+  }, [bookmarksState, id]);
 
   const handleIconClick = () => {
-    if (bookmarkRef.current) {
-      if (isActiveIcon) {
-        bookmarksDispatch({ type: 'remove-bookmark', payload: { id: bookmarkRef.current.id } });
-      } else {
-        bookmarksDispatch({ type: 'add-bookmark', payload: { id: bookmarkRef.current.id } });
-      }
+    if (isInList) {
+      bookmarksDispatch({ type: 'remove-bookmark', payload: { id } });
+    } else {
+      bookmarksDispatch({ type: 'add-bookmark', payload: { id } });
     }
-    setIsactiveIcon((prev) => !prev);
   };
 
   return (
     <div className={classes.root}>
-      <Tooltip title={`${isActiveIcon ? 'Supprimer bookmark' : 'Ajouter bookmark'}`}>
+      <Tooltip title={`${isInList ? 'Supprimer bookmark' : 'Ajouter bookmark'}`}>
         <IconButton
           aria-label="add bookmark"
           className={classes.bookmark}
           onClick={handleIconClick}
-          innerRef={bookmarkRef}
           id={id}
         >
-          {isActiveIcon ? (
+          {isInList ? (
             <BookmarkIcon className={classes.bookmark__icon__hover} />
           ) : (
             <BookmarkBorderIcon className={classes.bookmark__icon} />
