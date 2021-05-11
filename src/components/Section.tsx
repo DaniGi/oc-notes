@@ -15,7 +15,7 @@ export interface ISection {
 
 type Props = ISection;
 
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme: Theme) =>
 const Section: React.FC<Props> = ({ title, id, content }) => {
   const classes = useStyles();
   const [isInList, SetisInList] = useState(false);
+  const [showIcon, setShowIcon] = useState(false);
+  const timeoutRef = useRef<number | null>(null);
   const { bookmarksState, bookmarksDispatch } = useBookmarks();
 
   useEffect(() => {
@@ -63,14 +65,30 @@ const Section: React.FC<Props> = ({ title, id, content }) => {
     }
   };
 
+  const handleMouseEnter = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setShowIcon(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = (setTimeout(() => {
+      setShowIcon(false);
+    }, 500) as unknown) as number;
+  };
+
   return (
-    <div className={classes.root}>
+    <div
+      className={classes.root}
+      id={id}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <Tooltip title={`${isInList ? 'Supprimer bookmark' : 'Ajouter bookmark'}`}>
         <IconButton
           aria-label="add bookmark"
           className={classes.bookmark}
           onClick={handleIconClick}
-          id={id}
+          style={{ display: `${showIcon ? 'block' : 'none'}` }}
         >
           {isInList ? (
             <BookmarkIcon className={classes.bookmark__icon__hover} />
