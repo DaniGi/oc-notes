@@ -5,6 +5,7 @@ import Header from './components/Header';
 import CoursChapter from './components/CoursChapter';
 import { theme } from './lib/theme';
 import { BookmarksProvider } from './contexts/BookmarksContext';
+import { NotesProvider } from './contexts/NotesContext';
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
       <AppBar />
       <Header />
       <BookmarksProvider>
-        <CoursChapter />
+        <NotesProvider>
+          <CoursChapter />
+        </NotesProvider>
       </BookmarksProvider>
     </MuiThemeProvider>
   );

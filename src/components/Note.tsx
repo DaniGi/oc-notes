@@ -24,14 +24,14 @@ const useStyles = makeStyles(() =>
 
 interface Props {
   showIcon: boolean;
+  id: string;
 }
 
-const Note: React.FC<Props> = ({ showIcon }) => {
+const Note: React.FC<Props> = ({ showIcon, id }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleIconClick = () => {
-    console.log('open note');
     setOpen(true);
   };
 
@@ -47,7 +47,7 @@ const Note: React.FC<Props> = ({ showIcon }) => {
           <CommentIcon />
         </IconButton>
       </Tooltip>
-      <NoteModal open={open} setOpen={setOpen} />
+      <NoteModal open={open} setOpen={setOpen} id={id} />
     </div>
   );
 };

@@ -46,7 +46,7 @@ const Section: React.FC<Props> = ({ title, id, content }) => {
       onMouseLeave={handleMouseLeave}
     >
       <Bookmark showIcon={showIcon} id={id} />
-      <Note showIcon={showIcon} />
+      <Note showIcon={showIcon} id={id} />
       <Typography variant="h3">{title}</Typography>
       <Typography>{content}</Typography>
     </div>
