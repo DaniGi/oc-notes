@@ -35,7 +35,11 @@ function ListItemLink(props: ListItemProps<'a', { button?: true }>) {
 
 const BookmarkList: React.FC = () => {
   const classes = useStyles();
-  const { bookmarksState } = useBookmarks();
+  const { bookmarksState, bookmarksDispatch } = useBookmarks();
+
+  const handleOnClick = (id: string) => {
+    bookmarksDispatch({ type: 'remove-bookmark', payload: { id } });
+  };
 
   return (
     <div className={classes.root}>
@@ -48,7 +52,11 @@ const BookmarkList: React.FC = () => {
             <ListItemLink href={`#${bookmark.id}`}>
               <ListItemText primary={bookmark.id} />
               <ListItemSecondaryAction>
-                <IconButton edge="end" aria-label="delete">
+                <IconButton
+                  edge="end"
+                  aria-label="delete"
+                  onClick={() => handleOnClick(bookmark.id)}
+                >
                   <DeleteIcon />
                 </IconButton>
               </ListItemSecondaryAction>
