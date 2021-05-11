@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
       marginTop: theme.spacing(2),
     },
     breadcrumbs__item: {
-      fontWeight: 700,
+      fontWeight: 400,
       fontSize: '0.875rem',
     },
     title: {
@@ -68,10 +68,13 @@ const Header: React.FC = () => {
           <Typography color="textPrimary" className={classes.breadcrumbs__item}>
             Élaborez votre stratégie de recherche d&apos;emploi
           </Typography>
+          <Typography color="textPrimary" className={classes.breadcrumbs__item}>
+            Optimisez votre workflow
+          </Typography>
         </Breadcrumbs>
       </Grid>
       <Grid item xs={12} sm={9} className={classes.title}>
-        <Typography variant="h1">Élaborez votre stratégie de recherche d&apos;emploi</Typography>
+        <Typography variant="h1">Découvrez la vie d&apos;un développeur web débutant </Typography>
       </Grid>
       <Grid item container xs={12} sm={9} alignItems="center" justify="space-between">
         <Grid item>
