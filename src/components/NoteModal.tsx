@@ -15,7 +15,7 @@ const Transition = React.forwardRef(
     props: TransitionProps & { children?: React.ReactElement<any, any> },
     ref: React.Ref<unknown>,
   ) => {
-    return <Grow ref={ref} {...props} style={{ transformOrigin: '0 0 0' }} />;
+    return <Grow ref={ref} {...props} style={{ transformOrigin: 'left' }} />;
   },
 );
 
@@ -63,6 +63,7 @@ const NoteModal: React.FC<Props> = ({ open, setOpen, id }) => {
       TransitionComponent={Transition}
       onClose={handleClose}
       aria-labelledby="form-dialog-title"
+      fullWidth
     >
       <DialogTitle id="form-dialog-title">
         {noteRef.current ? 'Modifier note' : 'Nouvelle note'}
