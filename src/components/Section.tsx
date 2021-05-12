@@ -35,7 +35,7 @@ const Section: React.FC<Props> = ({ title, id, content }) => {
   const handleMouseLeave = () => {
     timeoutRef.current = (setTimeout(() => {
       setShowIcon(false);
-    }, 500) as unknown) as number;
+    }, 300) as unknown) as number;
   };
 
   return (
