@@ -47,22 +47,28 @@ const BookmarkList: React.FC = () => {
         Bookmarks
       </Typography>
       <List component="nav" aria-label="bookmarks list">
-        {bookmarksState.map((bookmark: IBookmark) => {
-          return (
-            <ListItemLink href={`#${bookmark.id}`}>
-              <ListItemText primary={bookmark.id} />
-              <ListItemSecondaryAction>
-                <IconButton
-                  edge="end"
-                  aria-label="delete"
-                  onClick={() => handleOnClick(bookmark.id)}
-                >
-                  <DeleteIcon />
-                </IconButton>
-              </ListItemSecondaryAction>
-            </ListItemLink>
-          );
-        })}
+        {bookmarksState.length === 0 ? (
+          <ListItem>
+            <ListItemText primary="Survoler un paragraphe pour ajouter un bookmark" />
+          </ListItem>
+        ) : (
+          bookmarksState.map((bookmark: IBookmark) => {
+            return (
+              <ListItemLink href={`#${bookmark.id}`}>
+                <ListItemText primary={bookmark.id} />
+                <ListItemSecondaryAction>
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => handleOnClick(bookmark.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                </ListItemSecondaryAction>
+              </ListItemLink>
+            );
+          })
+        )}
       </List>
     </div>
   );
