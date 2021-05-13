@@ -49,7 +49,7 @@ const BookmarkList: React.FC = () => {
       <List component="nav" aria-label="bookmarks list">
         {bookmarksState.length === 0 ? (
           <ListItem>
-            <ListItemText primary="Survoler un paragraphe pour ajouter un bookmark" />
+            <ListItemText primary="Survolez un paragraphe pour ajouter un bookmark" />
           </ListItem>
         ) : (
           bookmarksState.map((bookmark: IBookmark) => {

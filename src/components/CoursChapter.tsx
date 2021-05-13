@@ -15,7 +15,7 @@ const sections = [
     content,
   },
   {
-    title: '1 heure et 1 minute aprés: rien ne fonctionne plus',
+    title: '1 heure et 1 minute aprés: plus rien ne fonctionne',
     content,
   },
   {
