@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
 import Section from './Section';
 import BookmarkList from './BookmarkList';
 
