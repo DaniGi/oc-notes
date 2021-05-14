@@ -9,8 +9,19 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     timeline: {
       display: 'table',
+      tableLayout: 'fixed',
       width: '100%',
-      height: '100%',
+    },
+    timeline__split: {
+      display: 'table-cell',
+      width: '3px',
+    },
+    timeline__steps: {
+      display: 'table',
+      tableLayout: 'fixed',
+      width: '100%',
+      padding: '8px 0',
+      position: 'relative',
     },
     timeline__step: {
       display: 'table-cell',
@@ -26,6 +37,21 @@ const useStyles = makeStyles((theme: Theme) =>
         top: '8px',
       },
     },
+    timeline__icon: {
+      lineHeight: 'inherit',
+    },
+    timeline__iconContainer: {
+      width: '36px',
+      display: 'table-cell',
+      backgroundColor: 'rgba(130,130,130,.6)',
+      borderRadius: '50%',
+      color: 'white',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      '&:hover': {
+        backgroundColor: theme.palette.primary.main,
+      },
+    },
   }),
 );
 
@@ -33,14 +59,24 @@ const Timeline: React.FC = () => {
   const classes = useStyles();
   return (
     <Grid container justify="center" className={classes.root}>
-      <Grid item xs={12} sm={9}>
+      <Grid item xs={12} sm={9} container direction="row" alignItems="center">
         <div className={classes.timeline}>
-          <div className={classes.timeline__step} />
-          <div className={classes.timeline__step} />
-          <div className={classes.timeline__step} />
-          <div className={classes.timeline__step} />
-          <div className={classes.timeline__step} />
-          <div className={classes.timeline__step} />
+          <span className={classes.timeline__iconContainer}>
+            <i className={`fas fa-home fa-lg ${classes.timeline__icon}`} />
+          </span>
+          <span className={classes.timeline__split} />
+          <div className={classes.timeline__steps}>
+            <span className={classes.timeline__step} />
+            <span className={classes.timeline__step} />
+            <span className={classes.timeline__step} />
+            <span className={classes.timeline__step} />
+            <span className={classes.timeline__step} />
+            <span className={classes.timeline__step} />
+          </div>
+          <span className={classes.timeline__split} />
+          <span className={classes.timeline__iconContainer}>
+            <i className={`fas fa-trophy fa-lg ${classes.timeline__icon}`} />
+          </span>
         </div>
       </Grid>
     </Grid>
