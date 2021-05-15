@@ -21,7 +21,7 @@ const sections = [
     content,
   },
   {
-    title: 'ctrl+z et console.log()',
+    title: 'Ctrl+z et console.log()',
     content,
   },
   {
