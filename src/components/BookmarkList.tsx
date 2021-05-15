@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
+import blue from '@material-ui/core/colors/blue';
 import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
@@ -25,6 +26,14 @@ const useStyles = makeStyles((theme: Theme) =>
       fontWeight: 700,
       textAlign: 'center',
       padding: theme.spacing(1),
+    },
+    iconContainer: {
+      '&:hover $icon': {
+        color: 'red',
+      },
+    },
+    icon: {
+      color: blue[200],
     },
   }),
 );
@@ -61,8 +70,9 @@ const BookmarkList: React.FC = () => {
                     edge="end"
                     aria-label="delete"
                     onClick={() => handleOnClick(bookmark.id)}
+                    className={classes.iconContainer}
                   >
-                    <DeleteIcon />
+                    <DeleteIcon className={classes.icon} />
                   </IconButton>
                 </ListItemSecondaryAction>
               </ListItemLink>
