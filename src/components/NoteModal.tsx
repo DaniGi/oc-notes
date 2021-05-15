@@ -5,9 +5,21 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Grow from '@material-ui/core/Grow';
 import { TransitionProps } from '@material-ui/core/transitions';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import { useNotes } from '../contexts/NotesContext';
 
 const { useState, useRef, useEffect } = React;
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      '& .MuiPaper-root': {
+        border: '5px solid',
+        borderColor: theme.palette.secondary.light,
+      },
+    },
+  }),
+);
 
 const Transition = React.forwardRef(
   (
@@ -30,6 +42,7 @@ const NoteModal: React.FC<Props> = ({ open, setOpen, id }) => {
   const [input, setInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const noteRef = useRef(false);
+  const classes = useStyles();
 
   useEffect(() => {
     const items = notesState.filter((note) => note.id === id);
@@ -65,6 +78,7 @@ const NoteModal: React.FC<Props> = ({ open, setOpen, id }) => {
       aria-labelledby="form-dialog-title"
       fullWidth
       maxWidth="xs"
+      className={classes.root}
     >
       <DialogTitle id="form-dialog-title">
         {noteRef.current ? 'Modifier note' : 'Nouvelle note'}
