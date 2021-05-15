@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       backgroundColor: theme.palette.primary.main,
       '& *': {
-        color: theme.palette.secondary.main,
+        color: 'white',
       },
     },
     separator: {

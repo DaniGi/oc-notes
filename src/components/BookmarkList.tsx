@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     title: {
       backgroundColor: theme.palette.primary.main,
-      color: theme.palette.secondary.main,
+      color: 'white',
       fontWeight: 700,
       textAlign: 'center',
       padding: theme.spacing(1),

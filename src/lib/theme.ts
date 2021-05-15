@@ -1,9 +1,10 @@
 import { createMuiTheme } from '@material-ui/core/styles';
+import orange from '@material-ui/core/colors/orange';
 
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#7451eb' },
-    secondary: { main: '#fff' },
+    secondary: { main: orange[700], light: orange[200] },
   },
   typography: {
     fontFamily: ['Montserrat', 'sans-serif'].join(','),

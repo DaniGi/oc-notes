@@ -2,21 +2,20 @@ import * as React from 'react';
 import CommentIcon from '@material-ui/icons/Comment';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
-import { createStyles, makeStyles } from '@material-ui/core';
-import orange from '@material-ui/core/colors/orange';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import NoteModal from './NoteModal';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     note: {
-      color: orange[200],
+      color: theme.palette.secondary.light,
       padding: 0,
       position: 'absolute',
       top: 30,
       left: -27,
       '&:hover': {
         backgroundColor: 'transparent',
-        color: orange[700],
+        color: theme.palette.secondary.main,
       },
     },
   }),
