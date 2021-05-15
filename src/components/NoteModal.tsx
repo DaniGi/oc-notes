@@ -64,6 +64,7 @@ const NoteModal: React.FC<Props> = ({ open, setOpen, id }) => {
       onClose={handleClose}
       aria-labelledby="form-dialog-title"
       fullWidth
+      maxWidth="xs"
     >
       <DialogTitle id="form-dialog-title">
         {noteRef.current ? 'Modifier note' : 'Nouvelle note'}
