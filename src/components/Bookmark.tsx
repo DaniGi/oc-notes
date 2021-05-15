@@ -26,13 +26,17 @@ const useStyles = makeStyles(() =>
         color: blue[900],
       },
     },
+    bookmark__transition: {
+      transform: 'scale(1.3)',
+      transition: 'transform 100ms',
+    },
     bookmark__icon: {
       color: blue[200],
       '&:hover': {
         color: blue[900],
       },
     },
-    bookmark__icon__hover: {
+    bookmark__icon__active: {
       color: blue[900],
     },
   }),
@@ -42,6 +46,7 @@ const Bookmark: React.FC<Props> = ({ showIcon, id }) => {
   const classes = useStyles();
   const { bookmarksState, bookmarksDispatch } = useBookmarks();
   const [isInList, SetisInList] = useState(false);
+  const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
     const items = bookmarksState.filter((bookmark) => bookmark.id === id);
@@ -53,6 +58,7 @@ const Bookmark: React.FC<Props> = ({ showIcon, id }) => {
   }, [bookmarksState, id]);
 
   const handleIconClick = () => {
+    if (!isInList) setIsClicked(true);
     if (isInList) {
       bookmarksDispatch({ type: 'remove-bookmark', payload: { id } });
     } else {
@@ -64,12 +70,13 @@ const Bookmark: React.FC<Props> = ({ showIcon, id }) => {
     <Tooltip title={`${isInList ? 'Supprimer bookmark' : 'Ajouter bookmark'}`}>
       <IconButton
         aria-label="add bookmark"
-        className={classes.bookmark}
+        className={`${classes.bookmark} ${isClicked && classes.bookmark__transition}`}
         onClick={handleIconClick}
+        onAnimationEnd={() => setIsClicked(false)}
         style={{ display: `${showIcon ? 'block' : 'none'}` }}
       >
         {isInList ? (
-          <BookmarkIcon className={classes.bookmark__icon__hover} />
+          <BookmarkIcon className={classes.bookmark__icon__active} />
         ) : (
           <BookmarkBorderIcon className={classes.bookmark__icon} />
         )}

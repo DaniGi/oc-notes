@@ -12,7 +12,7 @@ const useStyles = makeStyles(() =>
       color: orange[200],
       padding: 0,
       position: 'absolute',
-      top: 25,
+      top: 30,
       left: -27,
       '&:hover': {
         backgroundColor: 'transparent',
