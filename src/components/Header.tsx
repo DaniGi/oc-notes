@@ -66,10 +66,7 @@ const Header: React.FC = () => {
             Cours
           </Typography>
           <Typography color="textPrimary" className={classes.breadcrumbs__item}>
-            Élaborez votre stratégie de recherche d&apos;emploi
-          </Typography>
-          <Typography color="textPrimary" className={classes.breadcrumbs__item}>
-            Optimisez votre workflow
+            Découvrez la vie d&apos;un développeur web débutant
           </Typography>
         </Breadcrumbs>
       </Grid>
@@ -85,7 +82,7 @@ const Header: React.FC = () => {
                   className={classes.info__item}
                   src="https://www.openclassrooms.com/images/icons/schedule.svg?0c3d209d"
                   width="16"
-                  title="Ce cours demande en moyenne 8 heures de travail pour être réussi."
+                  title="Ce cours demande en moyenne 100 heures de travail pour être réussi."
                   alt=""
                 />
                 <span className={classes.label}>100+ heures</span>
