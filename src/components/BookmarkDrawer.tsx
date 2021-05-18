@@ -34,12 +34,17 @@ const BookmarkDrawer: React.FC = () => {
         <IconButton
           className={classes.bookmark}
           aria-label="show bookmark list"
-          onClick={() => setIsOpen((prev) => !prev)}
+          onClick={() => setIsOpen(true)}
         >
           <BookmarkIcon />
         </IconButton>
       </Tooltip>
-      <StyledDrawer anchor="right" open={isOpen}>
+      <StyledDrawer
+        anchor="right"
+        open={isOpen}
+        onKeyDown={() => setIsOpen(false)}
+        onClick={() => setIsOpen(false)}
+      >
         <BookmarkList />
       </StyledDrawer>
     </div>
