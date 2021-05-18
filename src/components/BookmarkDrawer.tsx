@@ -13,13 +13,14 @@ const useStyles = makeStyles((theme: Theme) =>
       color: blue[900],
       border: '2px solid',
       padding: theme.spacing(1),
+      position: 'fixed',
     },
   }),
 );
 
 const StyledDrawer = withStyles({
   paperAnchorRight: {
-    top: '10%',
+    top: '39%',
     width: 250,
     height: 'fit-content',
     borderRadius: '5px',
