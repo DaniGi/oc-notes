@@ -60,7 +60,7 @@ const CoursChapter: React.FC = () => {
 
   return (
     <Grid container justify="center" className={classes.root}>
-      <Grid item container xs={12} sm={9}>
+      <Grid item container xs={11} sm={9}>
         <Grid item xs={12} md={9} style={{ paddingRight: '30px' }}>
           <Typography variant="h2">Gâchez la moitie de votre journée</Typography>
           {sections.map((section, index) => (

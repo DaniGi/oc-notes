@@ -1,28 +1,27 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import Button from '@material-ui/core/Button';
 import BookmarkList from './BookmarkList';
 
-const useStyles = makeStyles({
-  list: {
+const StyledDrawer = withStyles({
+  paperAnchorRight: {
+    top: '10%',
     width: 250,
+    height: 'fit-content',
+    borderRadius: '5px',
   },
-  fullList: {
-    width: 'auto',
-  },
-});
+})(Drawer);
 
 const BookmarkDrawer: React.FC = () => {
-  const classes = useStyles();
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div>
       <Button onClick={() => setIsOpen((prev) => !prev)}>Toggle</Button>
-      <Drawer anchor="right" open={isOpen} className={classes.list}>
+      <StyledDrawer anchor="right" open={isOpen}>
         <BookmarkList />
-      </Drawer>
+      </StyledDrawer>
     </div>
   );
 };

@@ -53,7 +53,7 @@ const Header: React.FC = () => {
 
   return (
     <Grid container justify="center" className={classes.root}>
-      <Grid item xs={12} sm={11} className={classes.breadcrumbs}>
+      <Grid item xs={11} className={classes.breadcrumbs}>
         <Breadcrumbs
           classes={{ separator: classes.separator }}
           separator={<NavigateNextIcon fontSize="small" />}
@@ -73,10 +73,10 @@ const Header: React.FC = () => {
           </Typography>
         </Breadcrumbs>
       </Grid>
-      <Grid item xs={12} sm={9} className={classes.title}>
+      <Grid item xs={11} sm={9} className={classes.title}>
         <Typography variant="h1">Découvrez la vie d&apos;un développeur web débutant </Typography>
       </Grid>
-      <Grid item container xs={12} sm={9} alignItems="center" justify="space-between">
+      <Grid item container xs={11} sm={9} alignItems="center" justify="space-between">
         <Grid item>
           <div>
             <ul className={classes.info}>

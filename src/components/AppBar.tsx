@@ -34,7 +34,7 @@ export default function ButtonAppBar() {
 
   return (
     <Grid container justify="center">
-      <Grid item xs={12} sm={11}>
+      <Grid item xs={11}>
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar className={classes.toolbar}>
             <Typography variant="h6" className={classes.item}>

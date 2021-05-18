@@ -59,7 +59,7 @@ const Timeline: React.FC = () => {
   const classes = useStyles();
   return (
     <Grid container justify="center" className={classes.root}>
-      <Grid item xs={12} sm={9} container direction="row" alignItems="center">
+      <Grid item xs={11} sm={9} container direction="row" alignItems="center">
         <div className={classes.timeline}>
           <span className={classes.timeline__iconContainer}>
             <i className={`fas fa-home fa-lg ${classes.timeline__icon}`} />
