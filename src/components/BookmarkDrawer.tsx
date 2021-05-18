@@ -1,8 +1,19 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
-import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Tooltip from '@material-ui/core/Tooltip';
+import BookmarkIcon from '@material-ui/icons/Bookmark';
+import blue from '@material-ui/core/colors/blue';
 import BookmarkList from './BookmarkList';
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    bookmark: {
+      color: blue[900],
+    },
+  }),
+);
 
 const StyledDrawer = withStyles({
   paperAnchorRight: {
@@ -14,11 +25,20 @@ const StyledDrawer = withStyles({
 })(Drawer);
 
 const BookmarkDrawer: React.FC = () => {
+  const classes = useStyles();
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
     <div>
-      <Button onClick={() => setIsOpen((prev) => !prev)}>Toggle</Button>
+      <Tooltip title="Afficher liste">
+        <IconButton
+          className={classes.bookmark}
+          aria-label="show bookmark list"
+          onClick={() => setIsOpen((prev) => !prev)}
+        >
+          <BookmarkIcon />
+        </IconButton>
+      </Tooltip>
       <StyledDrawer anchor="right" open={isOpen}>
         <BookmarkList />
       </StyledDrawer>
