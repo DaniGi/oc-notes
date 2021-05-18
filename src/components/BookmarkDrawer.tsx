@@ -12,9 +12,11 @@ const useStyles = makeStyles((theme: Theme) =>
     bookmark: {
       color: blue[900],
       border: '2px solid',
-      padding: theme.spacing(1),
+      padding: '3px',
     },
     wrapper: {
+      display: 'flex',
+      justifyContent: 'flex-end',
       position: 'sticky',
       top: theme.spacing(1),
     },

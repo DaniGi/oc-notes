@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme: Theme) =>
     root: {
       marginTop: theme.spacing(4),
     },
+    sectionsWrapper: {
+      paddingRight: theme.spacing(2),
+    },
   }),
 );
 
@@ -61,7 +64,7 @@ const CoursChapter: React.FC = () => {
   return (
     <Grid container justify="center" className={classes.root}>
       <Grid item container xs={11} sm={9}>
-        <Grid item xs={11} md={9} style={{ paddingRight: '30px' }}>
+        <Grid item xs={11} md={9} className={classes.sectionsWrapper}>
           <Typography variant="h2">Gâchez la moitie de votre journée</Typography>
           {sections.map((section, index) => (
             <Section title={section.title} id={`bookmark-${index}`} content={section.content} />
