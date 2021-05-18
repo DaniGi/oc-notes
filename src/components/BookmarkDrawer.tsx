@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles, makeStyles, createStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -7,10 +7,12 @@ import BookmarkIcon from '@material-ui/icons/Bookmark';
 import blue from '@material-ui/core/colors/blue';
 import BookmarkList from './BookmarkList';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     bookmark: {
       color: blue[900],
+      border: '2px solid',
+      padding: theme.spacing(1),
     },
   }),
 );
