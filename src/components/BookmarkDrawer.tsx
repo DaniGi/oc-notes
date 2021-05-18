@@ -13,26 +13,29 @@ const useStyles = makeStyles((theme: Theme) =>
       color: blue[900],
       border: '2px solid',
       padding: theme.spacing(1),
-      position: 'fixed',
+    },
+    wrapper: {
+      position: 'sticky',
+      top: theme.spacing(1),
     },
   }),
 );
 
-const StyledDrawer = withStyles({
+const StyledDrawer = withStyles((theme: Theme) => ({
   paperAnchorRight: {
-    top: '39%',
+    top: theme.spacing(1),
     width: 250,
     height: 'fit-content',
     borderRadius: '5px',
   },
-})(Drawer);
+}))(Drawer);
 
 const BookmarkDrawer: React.FC = () => {
   const classes = useStyles();
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <Tooltip title="Afficher liste">
         <IconButton
           className={classes.bookmark}

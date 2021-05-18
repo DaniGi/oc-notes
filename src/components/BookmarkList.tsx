@@ -13,15 +13,16 @@ import { IBookmark } from '../reducers/BookmarksReducer';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
+      position: 'sticky',
+      top: theme.spacing(1),
       width: '100%',
-      maxWidth: 360,
       backgroundColor: theme.palette.background.paper,
       boxShadow: 'rgb(121 121 121 / 35%) 1px 10px 20px',
       borderRadius: '5px',
       overflow: 'auto',
     },
     title: {
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: blue[900],
       color: 'white',
       fontWeight: 700,
       textAlign: 'center',
