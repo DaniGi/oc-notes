@@ -3,11 +3,16 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Typography from '@material-ui/core/Typography';
+import Divider from '@material-ui/core/Divider';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     menuButton: {
+      marginRight: theme.spacing(2),
+    },
+    item: {
       marginRight: theme.spacing(2),
     },
   }),
@@ -52,9 +57,25 @@ const MenuResponsive: React.FC = () => {
           horizontal: 'center',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Typography variant="h6" className={classes.item}>
+            Formations
+          </Typography>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Typography variant="h6" className={classes.item}>
+            Alternance
+          </Typography>
+        </MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Typography variant="h6" className={classes.item}>
+            Financements
+          </Typography>
+        </MenuItem>
+        <Divider orientation="horizontal" />
+        <MenuItem onClick={handleClose}>
+          <Typography variant="h6">Pour les entreprises</Typography>
+        </MenuItem>
       </Menu>
     </>
   );

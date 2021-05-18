@@ -65,11 +65,7 @@ const ButtonAppBar: React.FC = () => {
       <Grid item xs={11}>
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar className={classes.toolbar}>
-            {!mdBreakpoint && (
-              <MenuResponsive>
-                <ToolbarLinks />
-              </MenuResponsive>
-            )}
+            {!mdBreakpoint && <MenuResponsive />}
             <Typography variant="h6" className={classes.item}>
               <svg
                 className={classes.title}
