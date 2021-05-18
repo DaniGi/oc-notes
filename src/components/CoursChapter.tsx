@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const CoursChapter: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
-  const smBreakpoint = useMediaQuery(theme.breakpoints.up('md'));
+  const mdBreakpoint = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
     <Grid container justify="center" className={classes.root}>
@@ -68,7 +68,7 @@ const CoursChapter: React.FC = () => {
           ))}
         </Grid>
         <Grid item xs={1} md={3}>
-          {smBreakpoint ? <BookmarkList /> : <BookmarkDrawer />}
+          {mdBreakpoint ? <BookmarkList /> : <BookmarkDrawer />}
         </Grid>
       </Grid>
     </Grid>
