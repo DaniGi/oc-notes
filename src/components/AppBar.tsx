@@ -3,8 +3,7 @@ import { AppBar, Toolbar, Grid } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuResponsive from './MenuResponsive';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -67,14 +66,9 @@ const ButtonAppBar: React.FC = () => {
         <AppBar position="static" color="transparent" elevation={0}>
           <Toolbar className={classes.toolbar}>
             {!mdBreakpoint && (
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="menu"
-              >
-                <MenuIcon />
-              </IconButton>
+              <MenuResponsive>
+                <ToolbarLinks />
+              </MenuResponsive>
             )}
             <Typography variant="h6" className={classes.item}>
               <svg
