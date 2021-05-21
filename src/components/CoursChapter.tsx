@@ -65,7 +65,7 @@ const CoursChapter: React.FC = () => {
     <Grid container justify="center" className={classes.root}>
       <Grid item container xs={11} sm={9}>
         <Grid item xs={11} md={9} className={classes.sectionsWrapper}>
-          <Typography variant="h2">Gâchez la moitie de votre journée</Typography>
+          <Typography variant="h2">Gâchez la moitié de votre journée</Typography>
           {sections.map((section, index) => (
             <Section title={section.title} id={`bookmark-${index}`} content={section.content} />
           ))}
